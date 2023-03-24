@@ -26,10 +26,7 @@ const Navbar = ({ setColor }) => {
   return (
     <nav>
       <div className="nav">
-        <img
-          src={size > breakPoint ? "../images/logo.svg" : "../images/logo1.svg"}
-          alt="logo"
-        />
+        <img src="../images/logo.svg" alt="logo" />
         {size > breakPoint ? (
           <ul>
             <Link
