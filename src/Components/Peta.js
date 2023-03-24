@@ -20,6 +20,7 @@ function Peta({ setColor }) {
         saying that humans are not superior is just wrong on so many levels and
         we do not support that.
       </p>
+      <br />
       <p>
         Another issue we have with PETA is their insistence with saying that it
         is wrong to perform lab experiments on animals but then providing no
@@ -33,6 +34,7 @@ function Peta({ setColor }) {
         when they recover, they will go on to criticize those that restored
         their health. We do not support such hypocrisy.
       </p>
+      <br />
       <p>
         Last but not the least, PETA is known to kill a lot of animals. This is
         way worse as it is the utmost betrayal. Those who swore to protect are

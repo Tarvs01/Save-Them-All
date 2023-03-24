@@ -18,7 +18,7 @@ function Router() {
     setPageHighlight((prevState) => {
       if (window.innerWidth > 600) {
         document.querySelector(`#${prevState}`).style.color = "#000";
-        document.querySelector(`#${page}`).style.color = "rgb(243, 94, 118)";
+        document.querySelector(`#${page}`).style.color = "rgb(255,205,0)";
         return page;
       } else {
         return prevState;

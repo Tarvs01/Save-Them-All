@@ -1,25 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
-import { animals } from "../data/animals";
 import AnimalCard from "./AnimalCard";
 
 function Animals({ setColor }) {
+  const [animals, setAnimals] = useState({});
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("https://savethemall.onrender.com/data/animals")
+      .then((response) => response.json())
+      .then((data) => {
+        setAnimals(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log("There was an error of");
+        console.log(error);
+      });
+  }, [animals]);
+
   useEffect(() => {
     setColor("animals");
   });
 
-  /* if (document.querySelector("#sound")) {
-    document.querySelector("#sound").pause();
-  } */
-
   return (
-    <div className="animals-cont">
-      <h1>Learn more about the animals under our care</h1>
-      <div className="animals-card-cont">
-        {animals.map((animal) => {
-          return <AnimalCard key={animal.id} props={{ ...animal }} />;
-        })}
-      </div>
+    <div>
+      {loading && (
+        <div className="loading-container">
+          <div className="spinner-container">
+            <div className="sk-folding-cube">
+              <div className="sk-cube1 sk-cube"></div>
+              <div className="sk-cube2 sk-cube"></div>
+              <div className="sk-cube4 sk-cube"></div>
+              <div className="sk-cube3 sk-cube"></div>
+            </div>
+            <p>Loading...</p>
+          </div>
+        </div>
+      )}
+      {!loading && (
+        <div className="animals-cont">
+          <h1>Learn more about the animals under our care</h1>
+          <div className="animals-card-cont">
+            {animals.map((animal) => {
+              return <AnimalCard key={animal.id} props={{ ...animal }} />;
+            })}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

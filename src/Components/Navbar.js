@@ -23,21 +23,13 @@ const Navbar = ({ setColor }) => {
     };
   });
 
-  useEffect(() => {
-    let $sound = $("<audio>", { loop: true, id: "sound" });
-    let $source = $("<source>", {
-      src: "",
-      type: "audio/mpeg",
-      id: "source",
-    });
-    $sound.append($source);
-    $(".nav").append($sound);
-  }, []);
-
   return (
     <nav>
       <div className="nav">
-        <img src="../images/logo1.svg" alt="logo" />
+        <img
+          src={size > breakPoint ? "../images/logo.svg" : "../images/logo1.svg"}
+          alt="logo"
+        />
         {size > breakPoint ? (
           <ul>
             <Link

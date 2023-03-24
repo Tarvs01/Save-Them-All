@@ -12,35 +12,35 @@ function Home({ setColor }) {
       <div className="hero">
         <div className="hero-dark-bg"></div>
         <div className="hero-words-cont">
-          <h1>TarvsCorps</h1>
-          <p>Restoring wildlife</p>
+          <h1 className="hero-h1">Save Them All</h1>
+          <p>We gotta save 'em all</p>
         </div>
       </div>
 
       <section>
         <p className="home-para">
-          Name of the organization is devoted to the prevention of the extiction
-          of as many endangered species as possible. We work together with a
-          large number of animal scientists, volunteers, and partners to bring
-          this goal to a reality. Founded in 2019, we have formed partnerships
-          with top animal preservation organizations in order to increase the
-          feasibility and attainability of our goal. Name of the organization is
-          also working together with specific countries to further help in
-          achieving their goal. Such countries include China, Thailand, Russia,
-          Indonesia, Tanzania, Mozambique, Malaysia and The United Kingdom.
+          Save Them All is devoted to the prevention of the extiction of as many
+          endangered species as possible. We work together with a large number
+          of animal scientists, volunteers, and partners to bring this goal to a
+          reality. Founded in 2019, we have formed partnerships with top animal
+          preservation organizations in order to increase the feasibility and
+          attainability of our goal. Save Them All is also working together with
+          specific countries to further help in achieving their goal. Such
+          countries include China, Thailand, Russia, Indonesia, Tanzania,
+          Mozambique, Malaysia and The United Kingdom.
         </p>
       </section>
 
       <section className="yellow-bg">
         <h1>Our animals range</h1>
         <p className="home-para">
-          Name of the organization is aimed at preventing the extinction of
+          Save Them All is aimed at preventing the extinction of
           <strong> ALL </strong>
           animals, so we deal with any and all animals we can help. Be it bugs
           or elephants, our mission is to help with the preservation of as many
           species as possible. This has caused us to have a varying range of
-          animals. We have Dogs, Monkeys, leopards, bees, elephants and more
-          like the cute red pandas.
+          animals. We have Dogs, Monkeys, leopards, bees, elephants and even
+          more, like the cute red pandas.
         </p>
 
         <div className="carousel-container">
@@ -98,11 +98,13 @@ function Home({ setColor }) {
 
       <section>
         <div className="donate">
-          <h3>Name of the Organization</h3>
+          <h1>Save Them All</h1>
           <p>Join our cause today by supporting us</p>
           <button>Donate!</button>
         </div>
       </section>
+
+      <section></section>
     </div>
   );
 }
