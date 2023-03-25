@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import $ from "jquery";
 
 const Navbar = ({ setColor }) => {
   let breakPoint = 600;

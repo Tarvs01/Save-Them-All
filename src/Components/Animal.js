@@ -11,26 +11,27 @@ import parse from "html-react-parser";
 function Animal({ setColor }) {
   const { id } = useParams();
   const [animal, setAnimal] = useState({});
-  const [mainImage, setMainImage] = useState("");
   const [loading, setLoading] = useState(true);
-  const [size, setSize] = useState(window.innerWidth);
 
   useEffect(() => {
     fetch(`https://savethemall.onrender.com/data/animals/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setAnimal(data);
-        setMainImage(animal.img[0]);
         setLoading(false);
+        console.log("data fetched");
+        console.log(loading);
       })
       .catch((error) => {
         console.log("There was an error of");
         console.log(error);
       });
-  }, [animal]);
+  }, []);
 
   let timeout = null;
   let audio = null;
+
+  console.log("a render or rerender");
 
   const animationCaller = (animation, time) => {
     animation();
@@ -43,7 +44,7 @@ function Animal({ setColor }) {
 
   useEffect(() => {
     setColor("animals");
-  });
+  }, []);
 
   useEffect(() => {
     switch (animal.name) {
@@ -80,21 +81,8 @@ function Animal({ setColor }) {
       if (audio) {
         audio.pause();
       }
-      console.log("timeout cleared");
-      console.log("sound cleared");
     };
   }, [loading]);
-
-  useEffect(() => {
-    window.addEventListener("resize", checkSize);
-    return () => {
-      window.removeEventListener("resize", checkSize);
-    };
-  }, [animal]);
-
-  const checkSize = () => {
-    setSize(window.innerWidth);
-  };
 
   return (
     <div>
@@ -114,27 +102,27 @@ function Animal({ setColor }) {
       {!loading && (
         <div className="animal-container">
           <div className="animal-images-cont">
-            <img src={mainImage} alt={animal.name} />
+            <img src={animal.img[0]} alt={animal.name} id="animalImage" />
             <div className="animal-thumbs">
               <img
                 src={animal.img[0]}
                 alt="thumb"
                 onClick={() => {
-                  setMainImage(animal.img[0]);
+                  document.querySelector("#animalImage").src = animal.img[0];
                 }}
               />
               <img
                 src={animal.img[1]}
                 alt="thumb"
                 onClick={() => {
-                  setMainImage(animal.img[1]);
+                  document.querySelector("#animalImage").src = animal.img[1];
                 }}
               />
               <img
                 src={animal.img[2]}
                 alt="thumb"
                 onClick={() => {
-                  setMainImage(animal.img[2]);
+                  document.querySelector("#animalImage").src = animal.img[2];
                 }}
               />
             </div>
