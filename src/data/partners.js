@@ -1,4 +1,4 @@
-export const partners = [
+export const partnersData = [
   {
     id: 1,
     name: "Defenders of Wildlife",

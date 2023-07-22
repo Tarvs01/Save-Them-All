@@ -7,17 +7,20 @@ import { bumblebee } from "../animations/bumblebee";
 import { leopard } from "../animations/leopard";
 import $ from "jquery";
 import parse from "html-react-parser";
+import { animalsData } from "../data/animals";
 
 function Animal({ setColor }) {
   const { id } = useParams();
   const [animal, setAnimal] = useState({});
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  /*   useEffect(() => {
     fetch(`https://savethemall.onrender.com/data/animals/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setAnimal(data);
+        console.log(data);
+        console.log(animal);
         setLoading(false);
         console.log("data fetched");
         console.log(loading);
@@ -26,12 +29,18 @@ function Animal({ setColor }) {
         console.log("There was an error of");
         console.log(error);
       });
-  }, []);
+  }, []); */
+
+  useEffect(() => {
+    let anim = animalsData.find((_data) => {
+      return _data.id === Number(id);
+    });
+    setAnimal(anim);
+    setLoading(false);
+  });
 
   let timeout = null;
   let audio = null;
-
-  console.log("a render or rerender");
 
   const animationCaller = (animation, time) => {
     animation();

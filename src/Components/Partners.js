@@ -1,12 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import PartnerCard from "./PartnerCard";
+import { partnersData } from "../data/partners";
 
 function Partners({ setColor }) {
   const [partners, setPartners] = useState({});
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  /*   useEffect(() => {
     fetch(`https://savethemall.onrender.com/data/partners`)
       .then((response) => response.json())
       .then((data) => {
@@ -17,7 +18,12 @@ function Partners({ setColor }) {
         console.log("There was an error of");
         console.log(error);
       });
-  }, [partners]);
+  }, [partners]); */
+
+  useEffect(() => {
+    setPartners(partnersData);
+    setLoading(false);
+  });
 
   useEffect(() => {
     setColor("partners");

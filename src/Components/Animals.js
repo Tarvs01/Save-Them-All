@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import AnimalCard from "./AnimalCard";
+import { animalsData } from "../data/animals";
 
 function Animals({ setColor }) {
-  const [animals, setAnimals] = useState({});
+  const [animals, setAnimals] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  /* useEffect(() => {
     fetch("https://savethemall.onrender.com/data/animals")
       .then((response) => response.json())
       .then((data) => {
@@ -17,7 +18,12 @@ function Animals({ setColor }) {
         console.log("There was an error of");
         console.log(error);
       });
-  }, [animals]);
+  }, [animals]); */
+
+  useEffect(() => {
+    setAnimals(animalsData);
+    setLoading(false);
+  });
 
   useEffect(() => {
     setColor("animals");
